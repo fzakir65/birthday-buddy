@@ -1,17 +1,26 @@
 {
   "expo": {
-    "name": "birthday-buddy",
+    "name": "Birthday Buddy",
     "slug": "birthday-buddy",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "dark",
+    "scheme": "birthdaybuddy",
+    "splash": {
+      "backgroundColor": "#000000"
+    },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.birthdaybuddy.app",
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "Birthday Buddy uses your photos so you can add a picture to a friend's profile."
+      }
     },
     "android": {
+      "package": "com.birthdaybuddy.app",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#000000",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
@@ -20,6 +29,21 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "color": "#FF3B30"
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Birthday Buddy uses your photos so you can add a picture to a friend's profile."
+        }
+      ],
+      "expo-asset"
+    ]
   }
 }
