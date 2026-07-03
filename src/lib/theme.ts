@@ -47,6 +47,9 @@ export const colors = {
   todayRing: '#4A4A50',
   noteBody: '#C9C9CE',
   disabledFuture: '#3F3F46',
+  // Glassy/glossy surface treatment
+  glassBorder: 'rgba(255,255,255,0.08)',
+  glassBorderStrong: 'rgba(255,255,255,0.14)',
 
   white: '#FFFFFF',
   black: '#000000',

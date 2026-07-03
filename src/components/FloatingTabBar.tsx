@@ -5,6 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import type { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { colors, radius } from '../lib/theme';
+import { Gloss } from './Gloss';
 import { useFriends } from '../state/FriendsContext';
 import type { TabParamList } from '../navigation/types';
 
@@ -39,9 +40,11 @@ export function FloatingTabBar({ state, navigation }: BottomTabBarProps) {
     return (
       <Pressable key={route.key} style={styles.itemWrap} onPress={() => go(name, index)} hitSlop={6}>
         <View style={[styles.item, focused && styles.itemActive]}>
+          {focused && <Gloss radius={radius.pill} strength={0.09} />}
           <View>
             {isProfile ? (
               <LinearGradient colors={['#B45309', '#854D0E']} style={styles.avatar}>
+                <Gloss radius={11} strength={0.3} span={0.5} />
                 <Text style={styles.avatarText}>ME</Text>
               </LinearGradient>
             ) : (
@@ -58,9 +61,11 @@ export function FloatingTabBar({ state, navigation }: BottomTabBarProps) {
   return (
     <View style={[styles.container, { bottom: insets.bottom + 14 }]} pointerEvents="box-none">
       <View style={styles.bar}>
+        <Gloss radius={radius.pill} strength={0.06} span={0.7} />
         {item(0)}
         {item(1)}
         <Pressable style={styles.camera} onPress={openCamera} hitSlop={6}>
+          <Gloss radius={27} strength={0.4} span={0.5} />
           <Ionicons name="camera" size={26} color={colors.black} />
         </Pressable>
         {item(2)}

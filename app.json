@@ -43,7 +43,8 @@
           "photosPermission": "Birthday Buddy uses your photos so you can add a picture to a friend's profile."
         }
       ],
-      "expo-asset"
+      "expo-asset",
+      "expo-font"
     ]
   }
 }

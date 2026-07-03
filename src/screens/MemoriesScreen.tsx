@@ -13,6 +13,7 @@ import { TabScreenProps } from '../navigation/types';
 import { useFriends } from '../state/FriendsContext';
 import { Avatar } from '../components/Avatar';
 import { MemoryImage } from '../components/MemoryImage';
+import { Gloss } from '../components/Gloss';
 import { colors, colorFromString, radius, spacing } from '../lib/theme';
 import { MONTHS } from '../lib/constants';
 import {
@@ -99,6 +100,7 @@ export function MemoriesScreen({ navigation }: TabScreenProps<'Memories'>) {
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.segment}>
+          <Gloss radius={radius.pill} strength={0.05} />
           {(['feed', 'calendar'] as const).map((v) => {
             const on = view === v;
             return (
@@ -206,6 +208,7 @@ function renderFeed({
       )}
 
       <View style={styles.recap}>
+        <Gloss radius={20} />
         <Text style={styles.recapTitle}>{year} recap · so far ✨</Text>
         <View style={styles.recapStats}>
           {[
@@ -214,6 +217,7 @@ function renderFeed({
             { n: `${recap.bestStreakWeeks}w`, label: 'best streak' },
           ].map((st, i) => (
             <View key={i} style={styles.recapTile}>
+              <Gloss radius={14} strength={0.05} />
               <Text style={styles.recapNum}>{st.n}</Text>
               <Text style={styles.recapLabel}>{st.label}</Text>
             </View>
@@ -325,6 +329,7 @@ function renderCalendar(p: any) {
 
       {/* Fast Add banner */}
       <Pressable style={styles.fastAdd} onPress={() => navigation.navigate('AddEditFriend')}>
+        <Gloss radius={18} />
         <Text style={{ fontSize: 22 }}>🎂</Text>
         <View style={{ flex: 1 }}>
           <Text style={styles.fastAddTitle}>Fast Add birthdays</Text>
@@ -336,6 +341,7 @@ function renderCalendar(p: any) {
       {/* Month nav */}
       <View style={styles.monthNav}>
         <Pressable style={styles.monthBtn} onPress={() => changeMonth(-1)} hitSlop={8}>
+          <Gloss radius={19} strength={0.06} />
           <Ionicons name="chevron-back" size={20} color={colors.white} />
         </Pressable>
         <View style={{ alignItems: 'center' }}>
@@ -345,6 +351,7 @@ function renderCalendar(p: any) {
           </Text>
         </View>
         <Pressable style={styles.monthBtn} onPress={() => changeMonth(1)} hitSlop={8}>
+          <Gloss radius={19} strength={0.06} />
           <Ionicons name="chevron-forward" size={20} color={colors.white} />
         </Pressable>
       </View>
@@ -489,7 +496,7 @@ const styles = StyleSheet.create({
     paddingTop: 12,
     paddingBottom: spacing.md,
   },
-  segment: { flexDirection: 'row', backgroundColor: colors.card, borderRadius: radius.pill, padding: 3 },
+  segment: { flexDirection: 'row', backgroundColor: colors.card, borderRadius: radius.pill, padding: 3, borderWidth: 1, borderColor: colors.glassBorder, overflow: 'hidden' },
   segItem: { paddingVertical: 8, paddingHorizontal: 18, borderRadius: radius.pill },
   segItemOn: { backgroundColor: colors.segmentActive },
   segText: { fontSize: 15, fontWeight: '700', color: colors.textSecondary },
@@ -519,10 +526,10 @@ const styles = StyleSheet.create({
   streakWeeks: { fontSize: 12, fontWeight: '800', color: colors.orange },
 
   // recap
-  recap: { backgroundColor: colors.card, borderRadius: 20, padding: 16, marginBottom: spacing.lg },
+  recap: { backgroundColor: colors.card, borderRadius: 20, padding: 16, marginBottom: spacing.lg, borderWidth: 1, borderColor: colors.glassBorder, overflow: 'hidden' },
   recapTitle: { fontSize: 15, fontWeight: '800', color: colors.white, marginBottom: spacing.md },
   recapStats: { flexDirection: 'row', gap: GAP },
-  recapTile: { flex: 1, backgroundColor: colors.cardInner, borderRadius: 14, paddingVertical: 14, alignItems: 'center' },
+  recapTile: { flex: 1, backgroundColor: colors.cardInner, borderRadius: 14, paddingVertical: 14, alignItems: 'center', borderWidth: 1, borderColor: colors.glassBorder, overflow: 'hidden' },
   recapNum: { fontSize: 21, fontWeight: '800', color: colors.orange },
   recapLabel: { fontSize: 11, color: colors.textSecondary, marginTop: 2 },
   recapFooter: { fontSize: 13, color: colors.textSecondary, marginTop: spacing.md },
@@ -543,13 +550,13 @@ const styles = StyleSheet.create({
   ringWhen: { fontSize: 10, fontWeight: '800', marginTop: 1 },
 
   // fast add
-  fastAdd: { flexDirection: 'row', alignItems: 'center', gap: spacing.md, backgroundColor: colors.card, borderRadius: 18, paddingVertical: 14, paddingHorizontal: 16, marginBottom: spacing.lg },
+  fastAdd: { flexDirection: 'row', alignItems: 'center', gap: spacing.md, backgroundColor: colors.card, borderRadius: 18, paddingVertical: 14, paddingHorizontal: 16, marginBottom: spacing.lg, borderWidth: 1, borderColor: colors.glassBorder, overflow: 'hidden' },
   fastAddTitle: { fontSize: 16, fontWeight: '800', color: colors.white },
   fastAddSub: { fontSize: 13, color: colors.textSecondary, marginTop: 1 },
 
   // month nav
   monthNav: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: spacing.md },
-  monthBtn: { width: 38, height: 38, borderRadius: 19, backgroundColor: colors.card, alignItems: 'center', justifyContent: 'center' },
+  monthBtn: { width: 38, height: 38, borderRadius: 19, backgroundColor: colors.card, alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: colors.glassBorder, overflow: 'hidden' },
   monthNavTitle: { fontSize: 19, fontWeight: '800', color: colors.white },
   monthNavSub: { fontSize: 12, color: colors.textSecondary, marginTop: 1 },
 

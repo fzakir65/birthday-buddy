@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, ViewStyle } from 'react-native';
 import { colors, radius, shadow, spacing } from '../lib/theme';
+import { Gloss } from './Gloss';
 
 interface Props {
   title?: string;
@@ -15,7 +16,10 @@ export function SectionCard({ title, footer, children, style, noPadding }: Props
   return (
     <View style={styles.wrap}>
       {title ? <Text style={styles.header}>{title.toUpperCase()}</Text> : null}
-      <View style={[styles.card, noPadding && styles.noPad, style]}>{children}</View>
+      <View style={[styles.card, noPadding && styles.noPad, style]}>
+        <Gloss radius={radius.lg} />
+        {children}
+      </View>
       {footer ? <Text style={styles.footer}>{footer}</Text> : null}
     </View>
   );
@@ -42,6 +46,9 @@ const styles = StyleSheet.create({
     backgroundColor: colors.card,
     borderRadius: radius.lg,
     padding: spacing.lg,
+    borderWidth: 1,
+    borderColor: colors.glassBorder,
+    overflow: 'hidden',
     ...shadow.card,
   },
   noPad: {

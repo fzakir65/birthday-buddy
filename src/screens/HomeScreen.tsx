@@ -13,6 +13,7 @@ import { useFriends } from '../state/FriendsContext';
 import { FriendCard } from '../components/FriendCard';
 import { Avatar } from '../components/Avatar';
 import { ScoreBadge } from '../components/ScoreBadge';
+import { Gloss } from '../components/Gloss';
 import { EmptyState } from '../components/EmptyState';
 import { Button } from '../components/Button';
 import { colors, radius, shadow, spacing } from '../lib/theme';
@@ -67,6 +68,7 @@ export function HomeScreen({ navigation }: TabScreenProps<'Home'>) {
             <Text style={styles.date}>{todayLabel()}</Text>
           </View>
           <Pressable style={styles.addBtn} onPress={addFriend} hitSlop={8}>
+            <Gloss radius={22} strength={0.3} span={0.5} />
             <Ionicons name="add" size={26} color={colors.white} />
           </Pressable>
         </View>
@@ -90,6 +92,7 @@ export function HomeScreen({ navigation }: TabScreenProps<'Home'>) {
                   style={({ pressed }) => [styles.heroCard, pressed && { opacity: 0.85 }]}
                   onPress={() => openFriend(f.id)}
                 >
+                  <Gloss radius={radius.xl} strength={0.18} />
                   <Avatar name={f.name} photoUri={f.photoUri} size={58} ringColor={colors.white} />
                   <View style={styles.heroMid}>
                     <Text style={styles.heroName}>{f.name}</Text>
@@ -119,6 +122,7 @@ export function HomeScreen({ navigation }: TabScreenProps<'Home'>) {
           <View style={styles.healthBlock}>
             <Text style={styles.sectionTitle}>Social health</Text>
             <View style={styles.batteryCard}>
+              <Gloss radius={radius.lg} />
               <View style={styles.batteryTop}>
                 <Text style={styles.batteryLabel}>Social battery</Text>
                 <Text style={[styles.batteryPct, { color: batteryStatus.color }]}>
@@ -147,6 +151,7 @@ export function HomeScreen({ navigation }: TabScreenProps<'Home'>) {
                 onPress={() => openFriend(friend.id)}
                 style={({ pressed }) => [styles.neglectRow, pressed && { opacity: 0.7 }]}
               >
+                <Gloss radius={radius.lg} />
                 <Avatar name={friend.name} photoUri={friend.photoUri} size={40} />
                 <View style={styles.neglectMid}>
                   <Text style={styles.neglectName} numberOfLines={1}>
@@ -187,6 +192,7 @@ export function HomeScreen({ navigation }: TabScreenProps<'Home'>) {
 function Stat({ label, value, color }: { label: string; value: number; color: string }) {
   return (
     <View style={styles.stat}>
+      <Gloss radius={radius.lg} />
       <Text style={[styles.statValue, { color }]}>{value}</Text>
       <Text style={styles.statLabel}>{label}</Text>
     </View>
@@ -210,6 +216,9 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary,
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'hidden',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.25)',
     ...shadow.floating,
   },
   todayBlock: {
@@ -230,6 +239,9 @@ const styles = StyleSheet.create({
     borderRadius: radius.xl,
     padding: spacing.lg,
     marginBottom: spacing.sm,
+    overflow: 'hidden',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.18)',
     ...shadow.floating,
   },
   heroMid: { flex: 1, marginLeft: spacing.md },
@@ -256,6 +268,9 @@ const styles = StyleSheet.create({
     borderRadius: radius.lg,
     paddingVertical: spacing.lg,
     alignItems: 'center',
+    borderWidth: 1,
+    borderColor: colors.glassBorder,
+    overflow: 'hidden',
     ...shadow.card,
   },
   statValue: { fontSize: 26, fontWeight: '800' },
@@ -272,6 +287,9 @@ const styles = StyleSheet.create({
     borderRadius: radius.lg,
     padding: spacing.lg,
     marginBottom: spacing.sm,
+    borderWidth: 1,
+    borderColor: colors.glassBorder,
+    overflow: 'hidden',
     ...shadow.card,
   },
   batteryTop: { flexDirection: 'row', alignItems: 'center' },
@@ -294,6 +312,9 @@ const styles = StyleSheet.create({
     borderRadius: radius.lg,
     padding: spacing.md,
     marginBottom: spacing.sm,
+    borderWidth: 1,
+    borderColor: colors.glassBorder,
+    overflow: 'hidden',
     ...shadow.card,
   },
   neglectMid: { flex: 1 },

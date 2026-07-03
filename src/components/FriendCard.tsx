@@ -4,6 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Friend } from '../types';
 import { Avatar } from './Avatar';
 import { ScoreBadge } from './ScoreBadge';
+import { Gloss } from './Gloss';
 import { colors, radius, shadow, spacing } from '../lib/theme';
 import {
   countdownLabel,
@@ -38,6 +39,7 @@ export function FriendCard({ friend, onPress }: Props) {
         pressed && styles.pressed,
       ]}
     >
+      <Gloss radius={radius.lg} />
       <Avatar
         name={friend.name}
         photoUri={friend.photoUri}
@@ -84,6 +86,9 @@ const styles = StyleSheet.create({
     borderRadius: radius.lg,
     padding: spacing.md,
     marginBottom: spacing.sm,
+    borderWidth: 1,
+    borderColor: colors.glassBorder,
+    overflow: 'hidden',
     ...shadow.card,
   },
   cardToday: {
