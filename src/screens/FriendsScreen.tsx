@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
   },
   segmentText: { fontSize: 14, color: colors.textSecondary, fontWeight: '600' },
   segmentTextActive: { color: colors.text },
-  list: { paddingHorizontal: spacing.lg, paddingBottom: spacing.xxl * 2 },
+  list: { paddingHorizontal: spacing.lg, paddingBottom: 124 },
   count: {
     fontSize: 13,
     color: colors.textSecondary,

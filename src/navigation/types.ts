@@ -6,13 +6,15 @@ export type RootStackParamList = {
   Tabs: undefined;
   FriendProfile: { id: string };
   AddEditFriend: { id?: string } | undefined;
+  NewMemory: { y: number; m: number; d: number } | undefined;
+  MemoryViewer: { memoryId: string };
 };
 
 export type TabParamList = {
   Home: undefined;
   Friends: undefined;
-  Calendar: undefined;
-  Settings: undefined;
+  Memories: undefined;
+  Profile: undefined;
 };
 
 export type RootStackScreenProps<T extends keyof RootStackParamList> =

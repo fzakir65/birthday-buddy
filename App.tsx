@@ -6,16 +6,18 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Ionicons } from '@expo/vector-icons';
 
 import { FriendsProvider } from './src/state/FriendsContext';
 import { RootStackParamList, TabParamList } from './src/navigation/types';
 import { HomeScreen } from './src/screens/HomeScreen';
 import { FriendsScreen } from './src/screens/FriendsScreen';
-import { CalendarScreen } from './src/screens/CalendarScreen';
+import { MemoriesScreen } from './src/screens/MemoriesScreen';
 import { SettingsScreen } from './src/screens/SettingsScreen';
 import { FriendProfileScreen } from './src/screens/FriendProfileScreen';
 import { AddEditFriendScreen } from './src/screens/AddEditFriendScreen';
+import { MemoryViewerScreen } from './src/screens/MemoryViewerScreen';
+import { NewMemoryScreen } from './src/screens/NewMemoryScreen';
+import { FloatingTabBar } from './src/components/FloatingTabBar';
 import { colors } from './src/lib/theme';
 
 const Tab = createBottomTabNavigator<TabParamList>();
@@ -33,32 +35,16 @@ const navTheme = {
   },
 };
 
-const TAB_ICONS: Record<keyof TabParamList, keyof typeof Ionicons.glyphMap> = {
-  Home: 'home',
-  Friends: 'people',
-  Calendar: 'calendar',
-  Settings: 'settings',
-};
-
 function Tabs() {
   return (
     <Tab.Navigator
-      screenOptions={({ route }) => ({
-        headerShown: false,
-        tabBarActiveTintColor: colors.primary,
-        tabBarInactiveTintColor: colors.textSecondary,
-        tabBarStyle: { backgroundColor: colors.bg, borderTopColor: colors.separator },
-        tabBarIcon: ({ color, size, focused }) => {
-          const base = TAB_ICONS[route.name];
-          const name = (focused ? base : `${base}-outline`) as keyof typeof Ionicons.glyphMap;
-          return <Ionicons name={name} size={size} color={color} />;
-        },
-      })}
+      screenOptions={{ headerShown: false }}
+      tabBar={(props) => <FloatingTabBar {...props} />}
     >
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Friends" component={FriendsScreen} />
-      <Tab.Screen name="Calendar" component={CalendarScreen} />
-      <Tab.Screen name="Settings" component={SettingsScreen} />
+      <Tab.Screen name="Memories" component={MemoriesScreen} />
+      <Tab.Screen name="Profile" component={SettingsScreen} />
     </Tab.Navigator>
   );
 }
@@ -88,6 +74,16 @@ export default function App() {
                 name="AddEditFriend"
                 component={AddEditFriendScreen}
                 options={{ presentation: 'modal' }}
+              />
+              <Stack.Screen
+                name="NewMemory"
+                component={NewMemoryScreen}
+                options={{ presentation: 'modal', headerShown: false }}
+              />
+              <Stack.Screen
+                name="MemoryViewer"
+                component={MemoryViewerScreen}
+                options={{ presentation: 'fullScreenModal', headerShown: false }}
               />
             </Stack.Navigator>
           </NavigationContainer>

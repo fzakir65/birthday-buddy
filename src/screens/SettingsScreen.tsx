@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
 import { TabScreenProps } from '../navigation/types';
 import { useFriends } from '../state/FriendsContext';
 import { SectionCard, RowDivider } from '../components/SectionCard';
@@ -30,7 +31,7 @@ const STYLES: { key: NotificationStyle; label: string; premium: boolean }[] = [
   { key: 'email', label: 'Email', premium: true },
 ];
 
-export function SettingsScreen({ navigation }: TabScreenProps<'Settings'>) {
+export function SettingsScreen({ navigation }: TabScreenProps<'Profile'>) {
   const {
     settings,
     updateSettings,
@@ -39,6 +40,8 @@ export function SettingsScreen({ navigation }: TabScreenProps<'Settings'>) {
     scheduledCount,
     refreshScheduledCount,
     resetDemoData,
+    friends,
+    memories,
   } = useFriends();
 
   const toggleReminderDay = (days: number) => {
@@ -109,7 +112,21 @@ export function SettingsScreen({ navigation }: TabScreenProps<'Settings'>) {
         contentContainerStyle={styles.content}
         showsVerticalScrollIndicator={false}
       >
-        <Text style={styles.title}>Settings</Text>
+        <Text style={styles.title}>Profile</Text>
+
+        {/* User header card */}
+        <View style={styles.userCard}>
+          <LinearGradient colors={['#B45309', '#854D0E']} style={styles.userAvatar}>
+            <Text style={styles.userAvatarText}>ME</Text>
+          </LinearGradient>
+          <View style={{ flex: 1 }}>
+            <Text style={styles.userName}>You</Text>
+            <Text style={styles.userSub}>
+              {friends.length} {friends.length === 1 ? 'friend' : 'friends'} · {memories.length}{' '}
+              {memories.length === 1 ? 'memory' : 'memories'}
+            </Text>
+          </View>
+        </View>
 
         {/* Premium */}
         <Pressable onPress={togglePremium} style={styles.premiumCard}>
@@ -282,8 +299,21 @@ function IntegrationRow({
 
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: colors.bg },
-  content: { padding: spacing.lg, paddingBottom: spacing.xxl * 2 },
+  content: { padding: spacing.lg, paddingBottom: 124 },
   title: { fontSize: 34, fontWeight: '800', color: colors.text, marginBottom: spacing.lg },
+  userCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.md,
+    backgroundColor: colors.card,
+    borderRadius: radius.lg,
+    padding: 14,
+    marginBottom: spacing.xl,
+  },
+  userAvatar: { width: 54, height: 54, borderRadius: 27, alignItems: 'center', justifyContent: 'center' },
+  userAvatarText: { fontSize: 18, fontWeight: '800', color: colors.white },
+  userName: { fontSize: 18, fontWeight: '700', color: colors.text },
+  userSub: { fontSize: 13, color: colors.textSecondary, marginTop: 2 },
   premiumCard: {
     flexDirection: 'row',
     alignItems: 'center',

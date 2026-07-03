@@ -195,7 +195,7 @@ function Stat({ label, value, color }: { label: string; value: number; color: st
 
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: colors.bg },
-  content: { padding: spacing.lg, paddingBottom: spacing.xxl * 2 },
+  content: { padding: spacing.lg, paddingBottom: 124 },
   headerRow: {
     flexDirection: 'row',
     alignItems: 'center',
