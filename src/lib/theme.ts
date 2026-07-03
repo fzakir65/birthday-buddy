@@ -36,6 +36,18 @@ export const colors = {
   separator: '#2A2A2C',
   separatorStrong: '#3A3A3C',
 
+  // Memories / Calendar surfaces
+  sheet: '#0E0E10',
+  cardInner: '#26262A',
+  emptyTile: '#141416',
+  emptyTileBorder: '#222226',
+  chipIdle: '#2C2C2E',
+  tabActivePill: '#2E2E32',
+  segmentActive: '#3A3A3E',
+  todayRing: '#4A4A50',
+  noteBody: '#C9C9CE',
+  disabledFuture: '#3F3F46',
+
   white: '#FFFFFF',
   black: '#000000',
   danger: '#FF453A',

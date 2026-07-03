@@ -72,6 +72,64 @@ export interface Friend {
   createdAt: string;
 }
 
+/**
+ * A logged "moment" — the Memories feature. Photos are gradient placeholders
+ * (via `gradIndex` into the GRADS palette) until a real `photoUri` is picked.
+ */
+export interface Memory {
+  id: string;
+  /** Full date. `m` is 1-based (1-12). */
+  y: number;
+  m: number;
+  d: number;
+  /** Index into the GRADS gradient palette (used when no photoUri). */
+  gradIndex: number;
+  /** Local file URI from the image picker; overrides the gradient when set. */
+  photoUri?: string | null;
+  emoji: string;
+  tagline: string;
+  note?: string;
+  friendIds: string[];
+  /** "Core memory" — highlighted with a ✨ badge. */
+  core: boolean;
+  /** Emoji reaction counts, keys among ❤️ 🔥 😭 💀. */
+  reactions: Record<string, number>;
+}
+
+/** A recurring custom date added from "Discover special days". */
+export interface SpecialDay {
+  id: string;
+  /** 1-based month. */
+  m: number;
+  d: number;
+  emoji: string;
+  label: string;
+}
+
+/** A suggested moment ("Add to your calendar?") derived from friend activity. */
+export interface DateSuggestion {
+  id: string;
+  friendId: string;
+  /** e.g. "Hang", "Call", "Gym sesh" */
+  kind: string;
+  emoji: string;
+  y: number;
+  m: number;
+  d: number;
+}
+
+/** A "Discover special days" row (Friendversary, Half-birthday, etc.). */
+export interface DiscoverItem {
+  id: string;
+  emoji: string;
+  title: string;
+  sub: string;
+  m: number;
+  d: number;
+  added: boolean;
+  dismissed: boolean;
+}
+
 export type NotificationStyle = 'push' | 'sms' | 'email';
 
 export interface Settings {
