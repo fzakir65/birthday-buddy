@@ -77,7 +77,7 @@ export function HomeScreen({ navigation }: TabScreenProps<'Home'>) {
         {today.length > 0 && (
           <View style={styles.todayBlock}>
             <View style={styles.todayHeader}>
-              <Text style={styles.todayEmoji}>🎉</Text>
+              <Ionicons name="gift" size={18} color={colors.primary} />
               <Text style={styles.todayTitle}>
                 {today.length === 1
                   ? "Today's birthday"
@@ -139,7 +139,7 @@ export function HomeScreen({ navigation }: TabScreenProps<'Home'>) {
               </View>
               <Text style={styles.batterySub}>
                 {neglected.length === 0
-                  ? "You're on top of your circle — nice. 💚"
+                  ? "You're on top of your circle."
                   : `${neglected.length} ${
                       neglected.length === 1 ? 'friend needs' : 'friends need'
                     } a nudge`}

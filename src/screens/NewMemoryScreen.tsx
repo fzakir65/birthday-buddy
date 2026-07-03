@@ -183,7 +183,7 @@ export function NewMemoryScreen({ route, navigation }: RootStackScreenProps<'New
           </View>
 
           <View style={styles.coreRow}>
-            <Text style={styles.coreLabel}>✨ Mark as core memory</Text>
+            <Text style={styles.coreLabel}>Mark as core memory</Text>
             <Switch value={core} onValueChange={setCore} trackColor={{ true: colors.primary }} />
           </View>
 

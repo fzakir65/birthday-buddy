@@ -105,13 +105,13 @@ function messageFor(friend: Friend, daysBefore: number, settings: Settings) {
   const turning = age != null ? ` (turning ${age})` : '';
   if (daysBefore === 0) {
     return {
-      title: `🎂 It's ${friend.name}'s birthday today!`,
+      title: `It's ${friend.name}'s birthday today`,
       body: `Say happy birthday${turning}. Tap to call, text, or pick a gift idea.`,
     };
   }
   if (daysBefore === 1) {
     return {
-      title: `${friend.name}'s birthday is tomorrow 🎉`,
+      title: `${friend.name}'s birthday is tomorrow`,
       body: `Get ready${turning}. Open Birthday Buddy to plan something.`,
     };
   }
@@ -176,8 +176,8 @@ export async function sendTestNotification(): Promise<void> {
   const image = Platform.OS === 'ios' ? await getDefaultNotificationImage() : null;
   await Notifications.scheduleNotificationAsync({
     content: {
-      title: "🎂 It's Aisha's birthday in 3 days",
-      subtitle: 'Day One 💎',
+      title: "It's Aisha's birthday in 3 days",
+      subtitle: 'Day One',
       body: "This is how a reminder looks — tap to plan a gift or message. We've got your back!",
       ...(image ? { attachments: [{ identifier: 'demo', url: image, type: 'public.png' }] } : {}),
     },

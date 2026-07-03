@@ -65,19 +65,19 @@ function templatesFor(friend: Friend): { tone: string; text: string }[] {
   return [
     {
       tone: 'Warm',
-      text: `Happy birthday, ${f}! 🎉 Hope your day is full of all your favourite things.${ageLine} Let's celebrate soon!`,
+      text: `Happy birthday, ${f}! Hope your day is full of all your favourite things.${ageLine} Let's celebrate soon!`,
     },
     {
       tone: 'Heartfelt',
-      text: `Happy birthday, ${f}! ❤️ So grateful to have you in my life. Wishing you a year full of joy and good surprises.`,
+      text: `Happy birthday, ${f}! So grateful to have you in my life. Wishing you a year full of joy and good surprises.`,
     },
     {
       tone: 'Casual',
-      text: `Happy bday ${f}! 🥳 Have an amazing one — drinks on me soon!`,
+      text: `Happy bday ${f}! Have an amazing one — drinks on me soon!`,
     },
     {
       tone: 'Funny',
-      text: `Happy birthday ${f}! 🎂 You're not getting older, just leveling up. Legendary status confirmed.`,
+      text: `Happy birthday ${f}! You're not getting older, just leveling up. Legendary status confirmed.`,
     },
   ];
 }
@@ -174,9 +174,9 @@ export function FriendProfileScreen({
 
   const onPlan = () => {
     Alert.alert('Plan something', `What would you like to plan for ${firstName(friend.name)}?`, [
-      { text: 'Dinner 🍽️' },
-      { text: 'A call 📞' },
-      { text: 'Surprise 🎁' },
+      { text: 'Dinner' },
+      { text: 'A call' },
+      { text: 'Surprise' },
       { text: 'Close', style: 'cancel' },
     ]);
   };
@@ -241,7 +241,7 @@ export function FriendProfileScreen({
           <View style={styles.countdownPill}>
             <Ionicons name="gift" size={16} color={colors.primary} />
             <Text style={styles.countdownText}>
-              {days === 0 ? 'Birthday today! 🎉' : countdownLabel(days)}
+              {days === 0 ? 'Birthday today!' : countdownLabel(days)}
             </Text>
           </View>
           <Text style={styles.bday}>
@@ -258,7 +258,7 @@ export function FriendProfileScreen({
             <View style={{ flex: 1 }}>
               <Text style={styles.scoreLabel}>Friendship score</Text>
               <Text style={[styles.scoreStatus, { color: status.color }]}>
-                {status.emoji} {status.label}
+                {status.label}
               </Text>
             </View>
             <Text style={[styles.scoreNumber, { color: status.color }]}>{score}</Text>

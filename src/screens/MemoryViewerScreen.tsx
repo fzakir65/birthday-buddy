@@ -52,7 +52,8 @@ export function MemoryViewerScreen({ route, navigation }: RootStackScreenProps<'
         >
           {memory.core && (
             <View style={styles.corePill}>
-              <Text style={styles.corePillText}>✨ Core memory</Text>
+              <Ionicons name="star" size={13} color={colors.white} />
+              <Text style={styles.corePillText}>Core memory</Text>
             </View>
           )}
         </MemoryImage>
@@ -102,7 +103,7 @@ const styles = StyleSheet.create({
   date: { fontSize: 15, fontWeight: '700', color: colors.white },
   content: { paddingHorizontal: spacing.lg, paddingBottom: spacing.xxl * 2 },
   photo: { aspectRatio: 3 / 4, width: '100%' },
-  corePill: { position: 'absolute', top: 12, left: 12, backgroundColor: 'rgba(0,0,0,0.45)', borderRadius: radius.pill, paddingHorizontal: 12, paddingVertical: 6 },
+  corePill: { position: 'absolute', top: 12, left: 12, flexDirection: 'row', alignItems: 'center', gap: 5, backgroundColor: 'rgba(0,0,0,0.45)', borderRadius: radius.pill, paddingHorizontal: 12, paddingVertical: 6 },
   corePillText: { fontSize: 12, fontWeight: '800', color: colors.white },
   tagline: { fontSize: 24, fontWeight: '800', color: colors.white, lineHeight: 30, marginTop: spacing.xl },
   note: { fontSize: 15, color: colors.noteBody, lineHeight: 22, marginTop: spacing.md },

@@ -108,16 +108,15 @@ export function computeScore(friend: Friend, now: Date = new Date()): number {
 
 export interface ScoreStatus {
   label: string;
-  emoji: string;
   color: string;
 }
 
 /** A human, slightly cheeky label for a score (red = hottest, dims as it fades). */
 export function scoreStatus(score: number): ScoreStatus {
-  if (score >= 80) return { label: 'Elite Bestie', emoji: '🔥', color: colors.red };
-  if (score >= 55) return { label: 'Going strong', emoji: '⚡', color: colors.orange };
-  if (score >= 30) return { label: 'Keep it warm', emoji: '🌤️', color: colors.yellow };
-  return { label: 'Connection fading', emoji: '⚠️', color: colors.textSecondary };
+  if (score >= 80) return { label: 'Elite Bestie', color: colors.red };
+  if (score >= 55) return { label: 'Going strong', color: colors.orange };
+  if (score >= 30) return { label: 'Keep it warm', color: colors.yellow };
+  return { label: 'Connection fading', color: colors.textSecondary };
 }
 
 /** New interactions array with a freshly-logged connection prepended. */

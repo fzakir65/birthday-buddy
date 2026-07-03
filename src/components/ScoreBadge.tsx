@@ -30,7 +30,7 @@ export function ScoreBadge({ score, showStatus = false, small }: Props) {
         { backgroundColor: tint(st.color, 0.14) },
       ]}
     >
-      <Text style={[styles.dot, { color: st.color }]}>{st.emoji}</Text>
+      <View style={[styles.dot, { backgroundColor: st.color }]} />
       <Text style={[styles.score, small && styles.scoreSmall, { color: st.color }]}>{score}</Text>
       {showStatus ? <Text style={[styles.status, { color: st.color }]}>{st.label}</Text> : null}
     </View>
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 7,
     paddingVertical: 2,
   },
-  dot: { fontSize: 11 },
+  dot: { width: 6, height: 6, borderRadius: 3 },
   score: { fontSize: 14, fontWeight: '800' },
   scoreSmall: { fontSize: 12 },
   status: { fontSize: 12, fontWeight: '700', marginLeft: 2 },

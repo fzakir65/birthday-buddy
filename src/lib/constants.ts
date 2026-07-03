@@ -15,12 +15,12 @@ export interface ClosenessMeta {
 // The keys are the original closeness slots (kept so saved data stays valid); only
 // the labels/colours changed to give them personality.
 export const CLOSENESS: ClosenessMeta[] = [
-  { key: 'best', label: 'Day One 💎', color: colors.red, weight: 6 },
-  { key: 'close', label: 'Inner Circle 🔥', color: colors.orange, weight: 5 },
-  { key: 'family', label: 'Family DLC 🏠', color: colors.yellow, weight: 5 },
-  { key: 'friend', label: 'Chaos Agent 🌪️', color: colors.coral, weight: 4 },
-  { key: 'acquaintance', label: 'Soft Spot 🌙', color: colors.amber, weight: 3 },
-  { key: 'colleague', label: 'Work NPC 💼', color: colors.textSecondary, weight: 2 },
+  { key: 'best', label: 'Day One', color: colors.red, weight: 6 },
+  { key: 'close', label: 'Inner Circle', color: colors.orange, weight: 5 },
+  { key: 'family', label: 'Family DLC', color: colors.yellow, weight: 5 },
+  { key: 'friend', label: 'Chaos Agent', color: colors.coral, weight: 4 },
+  { key: 'acquaintance', label: 'Soft Spot', color: colors.amber, weight: 3 },
+  { key: 'colleague', label: 'Work NPC', color: colors.textSecondary, weight: 2 },
 ];
 
 export function closenessMeta(key: Closeness): ClosenessMeta {

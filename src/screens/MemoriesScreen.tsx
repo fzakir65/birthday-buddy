@@ -179,7 +179,7 @@ function renderFeed({
           >
             <View style={styles.fbBadge}>
               <Text style={styles.fbBadgeText}>
-                ⏪ ON THIS DAY · {fb.years === 1 ? '1 YEAR' : `${fb.years} YEARS`} AGO
+                ON THIS DAY · {fb.years === 1 ? '1 YEAR' : `${fb.years} YEARS`} AGO
               </Text>
             </View>
             <View>
@@ -201,7 +201,8 @@ function renderFeed({
             <Pressable key={s.friend.id} style={styles.streakChip} onPress={() => openFriend(s.friend.id)}>
               <Avatar name={s.friend.name} photoUri={s.friend.photoUri} size={26} />
               <Text style={styles.streakName}>{firstName(s.friend.name)}</Text>
-              <Text style={styles.streakWeeks}>{s.weeks}w 🔥</Text>
+              <Ionicons name="flame" size={12} color={colors.orange} />
+              <Text style={styles.streakWeeks}>{s.weeks}w</Text>
             </Pressable>
           ))}
         </ScrollView>
@@ -209,7 +210,7 @@ function renderFeed({
 
       <View style={styles.recap}>
         <Gloss radius={20} />
-        <Text style={styles.recapTitle}>{year} recap · so far ✨</Text>
+        <Text style={styles.recapTitle}>{year} recap · so far</Text>
         <View style={styles.recapStats}>
           {[
             { n: String(recap.memoryCount), label: 'memories' },
@@ -225,7 +226,7 @@ function renderFeed({
         </View>
         {recap.topFriend && (
           <Text style={styles.recapFooter}>
-            Most featured: {firstName(recap.topFriend.name)} 🏆
+            Most featured: {firstName(recap.topFriend.name)}
           </Text>
         )}
       </View>
@@ -247,7 +248,7 @@ function renderFeed({
                   <Text style={[styles.tileDay, styles.tileDayShadow]}>{me.d}</Text>
                   {me.core && (
                     <View style={styles.coreBadge}>
-                      <Text style={styles.coreBadgeText}>✨</Text>
+                      <Ionicons name="star" size={10} color={colors.white} />
                     </View>
                   )}
                 </MemoryImage>
@@ -330,7 +331,7 @@ function renderCalendar(p: any) {
       {/* Fast Add banner */}
       <Pressable style={styles.fastAdd} onPress={() => navigation.navigate('AddEditFriend')}>
         <Gloss radius={18} />
-        <Text style={{ fontSize: 22 }}>🎂</Text>
+        <Ionicons name="people" size={22} color={colors.primary} />
         <View style={{ flex: 1 }}>
           <Text style={styles.fastAddTitle}>Fast Add birthdays</Text>
           <Text style={styles.fastAddSub}>Up to 500 contacts at once</Text>
@@ -378,11 +379,11 @@ function renderCalendar(p: any) {
 
           const badge = t.isBirthday ? (
             <View style={[styles.calBadge, { backgroundColor: 'rgba(255,59,48,0.9)' }]}>
-              <Text style={styles.calBadgeText}>🎂</Text>
+              <Ionicons name="gift" size={10} color={colors.white} />
             </View>
           ) : t.special ? (
             <View style={[styles.calBadge, { backgroundColor: 'rgba(0,0,0,0.55)' }]}>
-              <Text style={styles.calBadgeText}>{t.special.emoji}</Text>
+              <Ionicons name="star" size={10} color={colors.gold} />
             </View>
           ) : null;
 
@@ -425,7 +426,7 @@ function renderCalendar(p: any) {
         })}
       </View>
 
-      <Text style={styles.legend}>🎂 birthday · tap + to add a memory</Text>
+      <Text style={styles.legend}>Tap + on any day to add a memory</Text>
 
       {/* Suggestions */}
       {suggestions.length > 0 && (
