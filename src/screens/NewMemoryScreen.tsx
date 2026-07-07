@@ -137,7 +137,7 @@ export function NewMemoryScreen({ route, navigation }: RootStackScreenProps<'New
                 <Pressable
                   key={e}
                   onPress={() => setEmoji(e)}
-                  style={[styles.emojiBtn, { backgroundColor: on ? colors.primarySoft : colors.card, borderColor: on ? colors.primary : 'transparent' }]}
+                  style={[styles.emojiBtn, { backgroundColor: on ? colors.primarySoft : colors.card, borderColor: on ? colors.primary : colors.glassBorder }]}
                 >
                   <Text style={{ fontSize: 20 }}>{e}</Text>
                 </Pressable>
@@ -212,10 +212,10 @@ const styles = StyleSheet.create({
   emojiWrap: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm, marginTop: spacing.md },
   emojiBtn: { width: 42, height: 42, borderRadius: 21, alignItems: 'center', justifyContent: 'center', borderWidth: 1.5 },
   label: { fontSize: 13, fontWeight: '600', color: colors.textSecondary, letterSpacing: 0.5, marginTop: spacing.xl, marginBottom: spacing.sm },
-  input: { backgroundColor: colors.card, borderRadius: 12, padding: 12, fontSize: 16, color: colors.white },
+  input: { backgroundColor: colors.card, borderRadius: 12, padding: 12, fontSize: 16, color: colors.white, borderWidth: 1, borderColor: colors.glassBorder },
   multiline: { minHeight: 90, textAlignVertical: 'top' },
   chipWrap: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.sm },
-  friendChip: { borderRadius: radius.pill, paddingVertical: 9, paddingHorizontal: 14 },
+  friendChip: { borderRadius: radius.pill, paddingVertical: 9, paddingHorizontal: 14, borderWidth: 1, borderColor: colors.glassBorder },
   friendChipText: { fontSize: 14, fontWeight: '600' },
   coreRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: spacing.xl },
   coreLabel: { fontSize: 16, color: colors.white },

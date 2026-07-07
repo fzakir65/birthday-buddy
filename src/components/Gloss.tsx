@@ -17,7 +17,7 @@ interface Props {
  * dark card or circle read as glassy/glossy. Drop it in as the FIRST child of a
  * relatively-positioned container (it sits behind the content, above the fill).
  */
-export function Gloss({ radius = 16, strength = 0.07, span = 0.55, style }: Props) {
+export function Gloss({ radius = 16, strength = 0.12, span = 0.55, style }: Props) {
   return (
     <View pointerEvents="none" style={[styles.wrap, { borderRadius: radius }, style]}>
       <LinearGradient

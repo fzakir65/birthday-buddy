@@ -1,10 +1,12 @@
 // iOS-flavoured design tokens (system colours, spacing, radii, shadows).
 
 export const colors = {
-  // Backgrounds — true-black base with subtly elevated dark cards (Snapchat/Yubo feel)
+  // Backgrounds — true-black base; cards share the SAME black fill and read
+  // "glass" purely through their rim light + sheen (IG/BeReal tab-bar feel).
+  // Raised-on-card surfaces are translucent white so they stay glassy.
   bg: '#000000',
-  card: '#1C1C1E',
-  elevated: '#2C2C2E',
+  card: '#000000',
+  elevated: 'rgba(255,255,255,0.08)',
 
   // Brand — bold red on black
   primary: '#FF3B30',
@@ -38,23 +40,41 @@ export const colors = {
 
   // Memories / Calendar surfaces
   sheet: '#0E0E10',
-  cardInner: '#26262A',
+  cardInner: 'rgba(255,255,255,0.06)',
   emptyTile: '#141416',
   emptyTileBorder: '#222226',
-  chipIdle: '#2C2C2E',
-  tabActivePill: '#2E2E32',
-  segmentActive: '#3A3A3E',
+  chipIdle: 'rgba(255,255,255,0.10)',
+  tabActivePill: 'rgba(255,255,255,0.14)',
+  segmentActive: 'rgba(255,255,255,0.16)',
   todayRing: '#4A4A50',
   noteBody: '#C9C9CE',
   disabledFuture: '#3F3F46',
   // Glassy/glossy surface treatment
-  glassBorder: 'rgba(255,255,255,0.08)',
-  glassBorderStrong: 'rgba(255,255,255,0.14)',
+  glassBorder: 'rgba(255,255,255,0.10)',
+  glassBorderStrong: 'rgba(255,255,255,0.18)',
 
   white: '#FFFFFF',
   black: '#000000',
   danger: '#FF453A',
 };
+
+/** True-hue accents for the per-vibe outlines — deliberately NOT remapped
+ *  onto the red/yellow tone like the legacy names above. */
+export const accents = {
+  red: '#FF3B30',
+  orange: '#FF9F0A',
+  yellow: '#FFD60A',
+  green: '#30D158',
+  blue: '#0A84FF',
+  purple: '#BF5AF2',
+  pink: '#FF2D55',
+};
+
+/** '#RRGGBB' -> '#RRGGBBAA' — for tinted borders and glows. */
+export function withAlpha(hex: string, alpha: number): string {
+  const a = Math.round(Math.min(1, Math.max(0, alpha)) * 255);
+  return hex + a.toString(16).padStart(2, '0');
+}
 
 export const spacing = {
   xs: 4,
@@ -99,6 +119,13 @@ export const shadow = {
     shadowOpacity: 0.15,
     shadowRadius: 12,
     elevation: 6,
+  },
+  /** Soft coloured halo — pair with a per-item `shadowColor`. */
+  glow: {
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.35,
+    shadowRadius: 10,
+    elevation: 4,
   },
 };
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { Image, StyleSheet, Text, View, ViewStyle } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { gradAt } from '../lib/memories';
+import { colors } from '../lib/theme';
 
 interface Props {
   gradIndex: number;
@@ -63,7 +64,7 @@ export function MemoryImage({
 const absoluteFill = { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 } as const;
 
 const styles = StyleSheet.create({
-  wrap: { overflow: 'hidden', backgroundColor: '#1C1C1E' },
+  wrap: { overflow: 'hidden', backgroundColor: colors.emptyTile },
   fill: absoluteFill,
   center: { ...absoluteFill, alignItems: 'center', justifyContent: 'center' },
 });

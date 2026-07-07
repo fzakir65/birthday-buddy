@@ -510,6 +510,8 @@ const styles = StyleSheet.create({
     borderRadius: radius.pill,
     paddingVertical: 9,
     paddingHorizontal: 14,
+    borderWidth: 1,
+    borderColor: colors.glassBorder,
   },
   todayChipText: { fontSize: 13, fontWeight: '700', color: colors.white },
   content: { paddingHorizontal: SIDE, paddingBottom: 124 },
@@ -522,7 +524,7 @@ const styles = StyleSheet.create({
 
   // streaks
   streakRow: { gap: spacing.sm, paddingBottom: spacing.lg },
-  streakChip: { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: colors.card, borderRadius: radius.pill, paddingVertical: 6, paddingHorizontal: 10 },
+  streakChip: { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: colors.card, borderRadius: radius.pill, paddingVertical: 6, paddingHorizontal: 10, borderWidth: 1, borderColor: colors.glassBorder },
   streakName: { fontSize: 13, fontWeight: '700', color: colors.white },
   streakWeeks: { fontSize: 12, fontWeight: '800', color: colors.orange },
 
@@ -573,7 +575,7 @@ const styles = StyleSheet.create({
   sugRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.md, marginBottom: spacing.md },
   sugTitle: { fontSize: 16, fontWeight: '700', color: colors.white },
   sugSub: { fontSize: 13, color: colors.textSecondary, marginTop: 1 },
-  dvTile: { width: 46, height: 46, borderRadius: 14, backgroundColor: colors.card, alignItems: 'center', justifyContent: 'center' },
+  dvTile: { width: 46, height: 46, borderRadius: 14, backgroundColor: colors.card, alignItems: 'center', justifyContent: 'center', borderWidth: 1, borderColor: colors.glassBorder },
   acceptBtn: { backgroundColor: colors.white, borderRadius: radius.pill, paddingVertical: 9, paddingHorizontal: 18 },
   acceptText: { fontSize: 14, fontWeight: '800', color: colors.black },
   addedBtn: { backgroundColor: colors.cardInner },

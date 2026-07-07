@@ -16,14 +16,14 @@ import { ScoreBadge } from '../components/ScoreBadge';
 import { Gloss } from '../components/Gloss';
 import { EmptyState } from '../components/EmptyState';
 import { Button } from '../components/Button';
-import { colors, radius, shadow, spacing } from '../lib/theme';
+import { colors, radius, shadow, spacing, withAlpha } from '../lib/theme';
 import {
   daysUntilBirthday,
   turningAge,
   upcomingWithin,
 } from '../lib/dates';
 import { neglectedFriends, scoreStatus, socialBattery } from '../lib/score';
-import { MONTHS } from '../lib/constants';
+import { closenessMeta, MONTHS } from '../lib/constants';
 
 function greeting(): string {
   const h = new Date().getHours();
@@ -149,7 +149,11 @@ export function HomeScreen({ navigation }: TabScreenProps<'Home'>) {
               <Pressable
                 key={friend.id}
                 onPress={() => openFriend(friend.id)}
-                style={({ pressed }) => [styles.neglectRow, pressed && { opacity: 0.7 }]}
+                style={({ pressed }) => [
+                  styles.neglectRow,
+                  { borderColor: withAlpha(closenessMeta(friend.closeness).color, 0.45) },
+                  pressed && { opacity: 0.7 },
+                ]}
               >
                 <Gloss radius={radius.lg} />
                 <Avatar name={friend.name} photoUri={friend.photoUri} size={40} />

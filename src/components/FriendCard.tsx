@@ -5,7 +5,7 @@ import { Friend } from '../types';
 import { Avatar } from './Avatar';
 import { ScoreBadge } from './ScoreBadge';
 import { Gloss } from './Gloss';
-import { colors, radius, shadow, spacing } from '../lib/theme';
+import { colors, radius, shadow, spacing, withAlpha } from '../lib/theme';
 import {
   countdownLabel,
   daysUntilBirthday,
@@ -35,6 +35,9 @@ export function FriendCard({ friend, onPress }: Props) {
       onPress={onPress}
       style={({ pressed }) => [
         styles.card,
+        shadow.glow,
+        // Vibe-coloured glossy outline + matching halo
+        { borderColor: withAlpha(meta.color, 0.55), shadowColor: meta.color },
         today && styles.cardToday,
         pressed && styles.pressed,
       ]}

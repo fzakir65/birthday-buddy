@@ -168,6 +168,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.md,
     height: 40,
     borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.glassBorder,
   },
   searchInput: {
     flex: 1,
@@ -177,11 +179,13 @@ const styles = StyleSheet.create({
   },
   segment: {
     flexDirection: 'row',
-    backgroundColor: colors.separator,
+    backgroundColor: colors.card,
     borderRadius: radius.md,
     margin: spacing.lg,
     marginBottom: spacing.sm,
     padding: 3,
+    borderWidth: 1,
+    borderColor: colors.glassBorder,
   },
   segmentItem: {
     flex: 1,
@@ -190,7 +194,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   segmentItemActive: {
-    backgroundColor: colors.card,
+    backgroundColor: colors.tabActivePill,
     ...shadow.card,
   },
   segmentText: { fontSize: 14, color: colors.textSecondary, fontWeight: '600' },

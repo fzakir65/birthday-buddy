@@ -309,6 +309,8 @@ const styles = StyleSheet.create({
     borderRadius: radius.lg,
     padding: 14,
     marginBottom: spacing.xl,
+    borderWidth: 1,
+    borderColor: colors.glassBorder,
   },
   userAvatar: { width: 54, height: 54, borderRadius: 27, alignItems: 'center', justifyContent: 'center' },
   userAvatarText: { fontSize: 18, fontWeight: '800', color: colors.white },

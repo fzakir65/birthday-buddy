@@ -253,7 +253,7 @@ export function FriendProfileScreen({
         </View>
 
         {/* Friendship score */}
-        <View style={styles.scoreCard}>
+        <View style={[styles.scoreCard, { borderColor: tint(meta.color, 0.5) }]}>
           <View style={styles.scoreTop}>
             <View style={{ flex: 1 }}>
               <Text style={styles.scoreLabel}>Friendship score</Text>
@@ -436,6 +436,8 @@ const styles = StyleSheet.create({
     borderRadius: radius.lg,
     padding: spacing.lg,
     marginBottom: spacing.xl,
+    borderWidth: 1,
+    borderColor: colors.glassBorder,
     ...shadow.card,
   },
   scoreTop: { flexDirection: 'row', alignItems: 'center' },

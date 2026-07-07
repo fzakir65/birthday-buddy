@@ -1,6 +1,6 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Closeness, MemoryVault, Settings } from '../types';
-import { colors } from './theme';
+import { accents } from './theme';
 
 export interface ClosenessMeta {
   key: Closeness;
@@ -14,13 +14,14 @@ export interface ClosenessMeta {
 // "Vibe" tags — ordered closest -> most distant. Used by the tag picker & sorting.
 // The keys are the original closeness slots (kept so saved data stays valid); only
 // the labels/colours changed to give them personality.
+// Each vibe gets a distinct true hue — it drives the card outline colour.
 export const CLOSENESS: ClosenessMeta[] = [
-  { key: 'best', label: 'Day One', color: colors.red, weight: 6 },
-  { key: 'close', label: 'Inner Circle', color: colors.orange, weight: 5 },
-  { key: 'family', label: 'Family DLC', color: colors.yellow, weight: 5 },
-  { key: 'friend', label: 'Chaos Agent', color: colors.coral, weight: 4 },
-  { key: 'acquaintance', label: 'Soft Spot', color: colors.amber, weight: 3 },
-  { key: 'colleague', label: 'Work NPC', color: colors.textSecondary, weight: 2 },
+  { key: 'best', label: 'Day One', color: accents.red, weight: 6 },
+  { key: 'close', label: 'Inner Circle', color: accents.orange, weight: 5 },
+  { key: 'family', label: 'Family DLC', color: accents.yellow, weight: 5 },
+  { key: 'friend', label: 'Chaos Agent', color: accents.purple, weight: 4 },
+  { key: 'acquaintance', label: 'Soft Spot', color: accents.pink, weight: 3 },
+  { key: 'colleague', label: 'Work NPC', color: accents.blue, weight: 2 },
 ];
 
 export function closenessMeta(key: Closeness): ClosenessMeta {
