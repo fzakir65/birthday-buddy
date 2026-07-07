@@ -10,9 +10,10 @@ import {
   Fredoka_600SemiBold,
   Fredoka_700Bold,
 } from '@expo-google-fonts/fredoka';
-import { installFredoka } from './src/lib/fonts';
+import { Baloo2_700Bold, Baloo2_800ExtraBold } from '@expo-google-fonts/baloo-2';
+import { installAppFonts } from './src/lib/fonts';
 
-installFredoka();
+installAppFonts();
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { NavigationContainer, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -67,6 +68,8 @@ export default function App() {
     Fredoka_500Medium,
     Fredoka_600SemiBold,
     Fredoka_700Bold,
+    Baloo2_700Bold,
+    Baloo2_800ExtraBold,
   });
 
   if (!fontsLoaded) return null;
